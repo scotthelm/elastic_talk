@@ -19,5 +19,5 @@ to quickly iterate queries over your documents. Here is
 An example curl command would be:
 
 ```bash
-$ curl -XPOST <docker-machine ip [name]>:9200/lottery -d '{"query" : { "match_all" : {} } }'
+$ curl -XPOST <docker-machine ip [name]>:9200/lottery/_search -d '{"query" : { "match_all" : {} } }'
 ```
