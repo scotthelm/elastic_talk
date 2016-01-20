@@ -9,5 +9,13 @@ echo "Booting elasticsearch...wating 10s"
 sleep 10s
 echo "Elasticsearch booted, putting data"
 curl -XPUT $(docker-machine ip default):9200/_bulk --data-binary "@lottery.json"
-echo "You're done. Great Job!"
-
+echo ""
+echo "the url for elasticsearch is:"
+echo "$(docker-machine ip default):9200"
+echo "the index and type are:"
+echo "lottery/draws"
+echo "an example query beginning would be \
+  GET lottery/draws \
+  { \
+    \"query \" : { \"match_all\" : {} } \
+  }"
