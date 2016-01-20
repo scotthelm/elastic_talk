@@ -1,0 +1,15 @@
+app:
+  build: .
+  volumes:
+    - .:/usr/src/app
+  volumes_from:
+    - bundle
+es:
+  image: "elasticsearch"
+  ports:
+    - "9200:9200"
+  command: "elasticsearch -Des.network.host=0.0.0.0"
+bundle:
+  image: tianon/true
+  volumes:
+    - /usr/local/bundle
