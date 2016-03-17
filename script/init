@@ -8,10 +8,11 @@ docker-compose up -d es
 echo "Booting elasticsearch...wating 10s"
 sleep 10s
 echo "Elasticsearch booted, putting data"
-curl -XPUT $(docker-machine ip default):9200/_bulk --data-binary "@lottery.json"
+env | sort
+curl -XPUT $(docker-machine ip $DOCKER_MACHINE_NAME):9200/_bulk --data-binary "@lottery.json"
 echo ""
 echo "the url for elasticsearch is:"
-echo "$(docker-machine ip default):9200"
+echo "$(docker-machine ip $DOCKER_MACHINE_NAME):9200"
 echo "the index and type are:"
 echo "lottery/draws"
 echo "an example query beginning would be \
